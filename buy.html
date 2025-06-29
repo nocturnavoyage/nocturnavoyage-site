@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acquista il tuo Blocco - NocturnaVoyage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: black;
+      background-image: url('pubblicita.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0.5rem;
+    }
+
+    header a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      background: #facc15;
+      color: black;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: transform 0.2s;
+    }
+
+    header a:hover {
+      transform: scale(1.05);
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: left;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin: 0.5rem 0;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.3rem 0;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 20px;
+      border: none;
+      background: #facc15;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">🏠 Home</a>
+    <h1>🛒 Acquista il tuo Blocco</h1>
+  </header>
+
+  <div class="container">
+    <h2>Blocco selezionato: <span id="blockNumber">1</span></h2>
+    <p>Prezzo: 1€ per blocco</p>
+    <p><em>Simulazione pagamento demo</em></p>
+
+    <form>
+      <h3>Personalizza il tuo Blocco</h3>
+      <p>Inserisci fino a 10 link e 10 immagini che saranno visibili sul tuo blocco nel Wall!</p>
+
+      <h4>🔗 Link (max 10)</h4>
+      <div id="links"></div>
+
+      <h4>🖼️ Immagini (max 10)</h4>
+      <div id="images"></div>
+
+      <button type="submit">💰 Conferma Acquisto</button>
+    </form>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const block = urlParams.get('block') || 1;
+    document.getElementById('blockNumber').innerText = block;
+
+    const linksContainer = document.getElementById('links');
+    for(let i = 1; i <= 10; i++) {
+      const input = document.createElement('input');
+      input.placeholder = `Link ${i}`;
+      linksContainer.appendChild(input);
+    }
+
+    const imagesContainer = document.getElementById('images');
+    for(let i = 1; i <= 10; i++) {
+      const input = document.createElement('input');
+      input.placeholder = `Immagine ${i} (URL)`;
+      imagesContainer.appendChild(input);
+    }
+  </script>
+</body>
+</html>

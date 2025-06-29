@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NocturnaVoyage – Work in Progress</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #facc15;
+      --secondary: #22c55e;
+      --accent: #d62976;
+      --background: #000;
+      --text: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Archivo Black', sans-serif;
+      background-color: var(--background);
+      background: url('pubblicita.png') no-repeat center top fixed;
+      background-size: cover;
+      color: var(--text);
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1.2rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+      max-width: 900px;
+      margin: 0.7rem 0;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+
+    .buttons a {
+      padding: 1.3rem 2.6rem;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: bold;
+      font-size: 1.5rem;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .buttons a:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    .wall-btn { background: var(--primary); color: var(--background); }
+    .memory-btn { background: var(--secondary); }
+    .insta-btn { background: var(--accent); }
+    .tiktok-btn { background: #000; border: 2px solid white; }
+
+    .banner-row {
+      margin-top: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 1000px;
+    }
+
+    .banner-demo {
+      background: rgba(0,0,0,0.7);
+      border: 2px dashed var(--primary);
+      color: var(--primary);
+      padding: 1.2rem;
+      flex: 1 1 300px;
+      max-width: 300px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    /* Tablet screens */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.8rem; }
+      p { font-size: 1.5rem; }
+      .buttons a { font-size: 1.4rem; width: 100%; max-width: 320px; }
+      .banner-demo { font-size: 1.3rem; }
+    }
+
+    /* Mobile screens - BIGGER TEXT */
+    @media (max-width: 480px) {
+      h1 { font-size: 2.6rem; }
+      p { font-size: 1.8rem; line-height: 1.6; }
+      .buttons {
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+      }
+      .buttons a {
+        font-size: 1.7rem;
+        padding: 1.4rem 2.8rem;
+        width: 100%;
+        max-width: 90%;
+        margin: 0 auto;
+      }
+      .banner-demo {
+        font-size: 1.5rem;
+        padding: 1.4rem;
+        width: 100%;
+        max-width: 95%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>NocturnaVoyage – Work in Progress</h1>
+  <p>🌌 Stiamo costruendo il tuo hub per la vita notturna globale.</p>
+  <p>🧱 Esplora il Wall, gioca al Memory con NFT unici e seguici sui social.</p>
+  <p>📲 Instagram e TikTok sempre aggiornati.</p>
+  <p>🚀 L'app ufficiale sta arrivando!</p>
+
+  <div class="buttons">
+    <a href="wall.html" class="wall-btn">🧱 Wall</a>
+    <a href="memory.html" class="memory-btn">🎮 Gioca al Memory</a>
+    <a href="https://instagram.com/nocturnavoyage" target="_blank" class="insta-btn">📸 Instagram</a>
+    <a href="https://tiktok.com/@nocturnavoyage" target="_blank" class="tiktok-btn">🎵 TikTok</a>
+  </div>
+
+  <div class="banner-row">
+    <div class="banner-demo">
+      📢 Banner DEMO – Qui puoi inserire annunci Google AdSense o altri network pubblicitari
+    </div>
+    <div class="banner-demo">
+      📢 Banner DEMO – Spazio pubblicitario per sponsorizzazioni o partner
+    </div>
+  </div>
+</body>
+</html>
