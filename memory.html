@@ -19,6 +19,8 @@
       text-align: center;
       padding: 1rem;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     h1 {
@@ -67,7 +69,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(5, 60px);
+      grid-template-columns: repeat(4, 60px);
       gap: 8px;
       justify-content: center;
       margin-top: 1rem;
@@ -123,6 +125,36 @@
       transform: scale(1.05);
     }
 
+    footer {
+      margin-top: 3rem;
+      background-color: #000;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      width: 100%;
+    }
+
+    footer nav a {
+      color: #facc15;
+      margin: 0 0.8rem;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: opacity 0.2s;
+    }
+
+    footer nav a:hover {
+      opacity: 0.8;
+    }
+
+    footer nav a.privacy, footer nav a.cookie {
+      color: #38bdf8;
+    }
+
+    footer p {
+      color: #666;
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
+
     @media (max-width: 768px) {
       .layout {
         flex-direction: column;
@@ -134,15 +166,19 @@
         margin-top: 1rem;
       }
       .grid {
-        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-        max-width: 100%;
+        grid-template-columns: repeat(4, 50px);
+        gap: 6px;
+      }
+      footer nav a {
+        display: block;
+        margin: 0.4rem 0;
       }
     }
   </style>
 </head>
 <body>
   <h1>🎮 Memory NFT Challenge</h1>
-  <p>🎮 Benvenuto nel nostro Minigioco Memory! Divertiti a trovare le coppie nel minor tempo possibile. Per ora è solo per intrattenimento, ma presto premieremo chi lo completa con NFT unici di NocturnaVoyage!</p>
+  <p>🎮 Benvenuto nel nostro Minigioco Memory! Divertiti a trovare le coppie nel minor tempo possibile. Presto premieremo chi lo completa con NFT unici di NocturnaVoyage!</p>
   <div id="timer">⏳ Tempo rimasto: 60s</div>
 
   <div class="layout">
@@ -162,6 +198,17 @@
     </div>
   </div>
 
+  <footer>
+    <nav>
+      <a href="index.html">🏠 Home</a>
+      <a href="about.html">📖 Chi siamo</a>
+      <a href="contatti.html">✉️ Contatti</a>
+      <a href="privacy.html" class="privacy">🔒 Privacy Policy</a>
+      <a href="cookie.html" class="cookie">🍪 Cookie Policy</a>
+    </nav>
+    <p>© 2025 NocturnaVoyage. Tutti i diritti riservati.</p>
+  </footer>
+
   <script>
     const emojis = ["🌟", "🚀", "🎧", "💎", "🎉", "🔥", "🎵", "🌙", "🎷", "🕺"];
     const grid = document.getElementById("grid");
@@ -174,7 +221,6 @@
     let countdown;
     let gameOver = false;
 
-    // Build grid
     values.forEach((value) => {
       const card = document.createElement("div");
       card.className = "card";
@@ -183,7 +229,6 @@
       grid.appendChild(card);
     });
 
-    // Timer countdown
     function startTimer() {
       countdown = setInterval(() => {
         if (time > 0) {
@@ -199,7 +244,6 @@
     }
     startTimer();
 
-    // Card logic
     function handleClick(card) {
       if (gameOver) return;
       if (card.classList.contains("revealed") || second) return;

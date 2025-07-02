@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contattaci - Nocturnavoyage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Archivo Black', sans-serif;
+      background: url('pubblicita.png') no-repeat center top fixed;
+      background-size: cover;
+      color: #facc15;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1.2rem;
+      color: #facc15;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
+      line-height: 1.6;
+    }
+
+    .email-box {
+      background: rgba(0,0,0,0.85);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      max-width: 700px;
+    }
+
+    a.email-link {
+      color: #38bdf8;
+      text-decoration: underline;
+      font-size: 1.6rem;
+      word-break: break-all;
+    }
+
+    .note {
+      color: #86efac;
+      font-size: 1.3rem;
+      margin-top: 1rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .buttons a {
+      padding: 1.2rem 2.4rem;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.4rem;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .buttons a:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    .home-btn { background: #facc15; color: #000; }
+    .insta-btn { background: #d62976; }
+    .tiktok-btn { background: #000; border: 2px solid #fff; }
+
+    footer {
+      margin-top: auto;
+      padding: 1.2rem;
+      background: rgba(0,0,0,0.8);
+      font-size: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+
+    footer a {
+      color: #facc15;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    footer a:hover {
+      opacity: 0.7;
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 2.4rem; }
+      p { font-size: 1.4rem; }
+      .buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      .buttons a {
+        width: 90%;
+        max-width: 300px;
+        font-size: 1.6rem;
+      }
+      footer {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>✉️ Contattaci</h1>
+  <div class="email-box">
+    <p>📣 Scrivici per info, collaborazioni o pubblicità! Siamo easy 😎</p>
+    <p>💬 Raccontaci la tua idea o chiedici quello che vuoi!</p>
+    <a href="mailto:nocturnavoyage@gmail.com" class="email-link">📧 nocturnavoyage@gmail.com</a>
+    <p class="note">✅ Di solito rispondiamo in 48h, tranquillo! 😉</p>
+  </div>
+
+  <div class="buttons">
+    <a href="index.html" class="home-btn">🏠 Home</a>
+    <a href="https://instagram.com/nocturnavoyage" target="_blank" class="insta-btn">📸 Instagram</a>
+    <a href="https://tiktok.com/@nocturnavoyage" target="_blank" class="tiktok-btn">🎵 TikTok</a>
+  </div>
+
+  <footer>
+    <a href="index.html">🏠 Home</a>
+    <a href="about.html">ℹ️ Chi siamo</a>
+    <a href="contatti.html">✉️ Contatti</a>
+    <a href="privacy.html">📜 Privacy Policy</a>
+    <a href="cookie.html">🍪 Cookie Policy</a>
+  </footer>
+</body>
+</html>

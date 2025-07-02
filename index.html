@@ -71,6 +71,8 @@
 
     .wall-btn { background: var(--primary); color: var(--background); }
     .memory-btn { background: var(--secondary); }
+    .about-btn { background: var(--primary); color: var(--background); }
+    .contact-btn { background: var(--primary); color: var(--background); }
     .insta-btn { background: var(--accent); }
     .tiktok-btn { background: #000; border: 2px solid white; }
 
@@ -95,15 +97,44 @@
       line-height: 1.5;
     }
 
-    /* Tablet screens */
+    footer {
+      margin-top: 3rem;
+      background-color: #000;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      width: 100%;
+    }
+
+    footer nav a {
+      color: #facc15;
+      margin: 0 0.8rem;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: opacity 0.2s;
+    }
+
+    footer nav a:hover {
+      opacity: 0.8;
+    }
+
+    footer nav a.privacy, footer nav a.cookie {
+      color: #38bdf8;
+    }
+
+    footer p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
     @media (max-width: 768px) {
       h1 { font-size: 2.8rem; }
       p { font-size: 1.5rem; }
       .buttons a { font-size: 1.4rem; width: 100%; max-width: 320px; }
       .banner-demo { font-size: 1.3rem; }
+      footer nav a { display: block; margin: 0.4rem 0; }
     }
 
-    /* Mobile screens - BIGGER TEXT */
     @media (max-width: 480px) {
       h1 { font-size: 2.6rem; }
       p { font-size: 1.8rem; line-height: 1.6; }
@@ -138,6 +169,8 @@
   <div class="buttons">
     <a href="wall.html" class="wall-btn">🧱 Wall</a>
     <a href="memory.html" class="memory-btn">🎮 Gioca al Memory</a>
+    <a href="about.html" class="about-btn">ℹ️ Chi siamo</a>
+    <a href="contatti.html" class="contact-btn">✉️ Contatti</a>
     <a href="https://instagram.com/nocturnavoyage" target="_blank" class="insta-btn">📸 Instagram</a>
     <a href="https://tiktok.com/@nocturnavoyage" target="_blank" class="tiktok-btn">🎵 TikTok</a>
   </div>
@@ -150,5 +183,16 @@
       📢 Banner DEMO – Spazio pubblicitario per sponsorizzazioni o partner
     </div>
   </div>
+
+  <footer>
+    <nav>
+      <a href="index.html">🏠 Home</a>
+      <a href="about.html">📖 Chi siamo</a>
+      <a href="contatti.html">✉️ Contatti</a>
+      <a href="privacy.html" class="privacy">🔒 Privacy Policy</a>
+      <a href="cookie.html" class="cookie">🍪 Cookie Policy</a>
+    </nav>
+    <p>© 2025 NocturnaVoyage. Tutti i diritti riservati.</p>
+  </footer>
 </body>
 </html>

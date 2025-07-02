@@ -18,6 +18,8 @@
       text-align: center;
       padding: 2rem;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -52,6 +54,7 @@
     }
 
     .container {
+      flex: 1;
       max-width: 700px;
       margin: 2rem auto;
       background: rgba(0, 0, 0, 0.85);
@@ -96,6 +99,32 @@
       transform: scale(1.05);
     }
 
+    footer {
+      background: rgba(0,0,0,0.85);
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #facc15;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    footer a:hover {
+      opacity: 0.7;
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.6rem; }
+      header a { font-size: 0.9rem; }
+      footer { flex-direction: column; gap: 0.7rem; }
+    }
   </style>
 </head>
 <body>
@@ -122,6 +151,14 @@
       <button type="submit">💰 Conferma Acquisto</button>
     </form>
   </div>
+
+  <footer>
+    <a href="index.html">🏠 Home</a>
+    <a href="about.html">ℹ️ Chi siamo</a>
+    <a href="contatti.html">✉️ Contatti</a>
+    <a href="privacy.html">📜 Privacy Policy</a>
+    <a href="cookie.html">🍪 Cookie Policy</a>
+  </footer>
 
   <script>
     const urlParams = new URLSearchParams(window.location.search);

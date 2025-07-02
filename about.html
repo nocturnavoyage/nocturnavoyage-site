@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chi siamo - NocturnaVoyage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #facc15;
+      --background: #000;
+      --text: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Archivo Black', sans-serif;
+      background: url('pubblicita.png') no-repeat center top fixed;
+      background-size: cover;
+      background-color: var(--background);
+      color: var(--primary);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .content {
+      max-width: 900px;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: left;
+      line-height: 1.6;
+      font-size: 1.3rem;
+    }
+
+    .content p, .content li {
+      margin: 0.7rem 0;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+    }
+
+    .contact-links {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 1rem;
+    }
+
+    .contact-links li {
+      margin: 0.5rem 0;
+    }
+
+    .contact-links a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .cookie-info {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px dashed var(--primary);
+      border-radius: 12px;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .cookie-info a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background-color: var(--primary);
+      color: var(--background);
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .back-btn:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 1.2rem;
+      background: rgba(0,0,0,0.8);
+      font-size: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+
+    footer a {
+      color: #facc15;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    footer a:hover {
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.6rem; }
+      .content { font-size: 1.2rem; padding: 1.5rem; }
+      .cookie-info { font-size: 1.1rem; padding: 1.2rem; }
+      .back-btn { font-size: 1.1rem; }
+      footer { flex-direction: column; gap: 0.8rem; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 2.4rem; }
+      .content { font-size: 1.15rem; }
+      .cookie-info { font-size: 1rem; }
+      .back-btn { font-size: 1rem; padding: 0.9rem 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <h1>📖 Chi siamo</h1>
+  <div class="content">
+    <p>Benvenuto su NocturnaVoyage, il primo sito dedicato a esplorare la nightlife globale in modo autentico e senza filtri.</p>
+    <p>Siamo un progetto indipendente nato per aiutare viaggiatori adulti a scoprire i migliori locali notturni, eventi, club e attrazioni per maggiorenni in tutto il mondo.</p>
+    <p>🎯 <strong>La nostra missione</strong>: offrire guide dettagliate e personalizzate per chi vuole vivere esperienze uniche di notte, ovunque si trovi.</p>
+    <p>📌 <strong>Cosa trovi su Nocturnavoyage:</strong></p>
+    <ul>
+      <li>Mappe e percorsi per arrivare ai locali</li>
+      <li>Suggerimenti esclusivi per hotel e voli</li>
+      <li>NFT personalizzati in regalo</li>
+      <li>Accesso a una community dedicata</li>
+      <li>30 categorie diverse di divertimento per maggiorenni</li>
+    </ul>
+    <p>Amiamo la trasparenza e vogliamo dare spazio a tutte le realtà notturne, dai grandi club internazionali ai piccoli locali underground.</p>
+    <p>⚡ Il nostro sito è work in progress: stiamo ampliando contenuti, funzionalità e servizi ogni giorno.</p>
+    <p>📣 Se vuoi saperne di più o collaborare con noi ➜ Contattaci!</p>
+    <ul class="contact-links">
+      <li>📧 Email: <a href="mailto:nocturnavoyage@gmail.com">nocturnavoyage@gmail.com</a></li>
+      <li>📸 Instagram: <a href="https://www.instagram.com/nocturnavoyage" target="_blank">@nocturnavoyage</a></li>
+      <li>🎵 TikTok: <a href="https://www.tiktok.com/@nocturnavoyage" target="_blank">@nocturnavoyage</a></li>
+    </ul>
+    <div class="cookie-info">
+      🍪 Questo sito utilizza cookie tecnici e di terze parti (come Google AdSense o Analytics) per offrirti la migliore esperienza possibile, analizzare il traffico e mostrare annunci personalizzati. Navigando accetti il loro uso. <br>
+      👉 Leggi tutti i dettagli nella nostra <a href="cookie.html">Cookie Policy</a>.
+    </div>
+  </div>
+
+  <a href="index.html" class="back-btn">🏠 Torna alla Home</a>
+
+  <footer>
+    <a href="index.html">🏠 Home</a>
+    <a href="about.html">ℹ️ Chi siamo</a>
+    <a href="contatti.html">✉️ Contatti</a>
+    <a href="privacy.html">📜 Privacy Policy</a>
+    <a href="cookie.html">🍪 Cookie Policy</a>
+  </footer>
+</body>
+</html>
