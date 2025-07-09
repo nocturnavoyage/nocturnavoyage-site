@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NocturnaVoyage – Work in Progress</title>
-  <meta name="description" content="NocturnaVoyage – Esplora la nightlife globale: Wall virtuale, minigiochi NFT, guide per adulti e tanto altro. Il tuo hub per la vita notturna.">
+  <title>NocturnaVoyage - Esplora la Nightlife</title>
+  <meta name="description" content="NocturnaVoyage – Guide digitali, NFT personalizzati, info e community per esplorare la nightlife globale.">
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-  
-  <!-- Il tuo CSS inline rimane identico -->
   <style>
     :root {
       --primary: #facc15;
-      --secondary: #22c55e;
-      --accent: #d62976;
       --background: #000;
       --text: #fff;
     }
@@ -25,177 +21,146 @@
 
     body {
       font-family: 'Archivo Black', sans-serif;
-      background-color: var(--background);
       background: url('pubblicita.png') no-repeat center top fixed;
       background-size: cover;
-      color: var(--text);
-      text-align: center;
-      padding: 2.5rem 1.5rem;
-      min-height: 100vh;
+      background-color: var(--background);
+      color: var(--primary);
+      padding: 2rem 1.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-height: 100vh;
     }
 
     h1 {
       font-size: 3rem;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 1rem 0;
+      text-align: center;
     }
 
     p {
-      font-size: 1.6rem;
       max-width: 900px;
-      margin: 0.7rem 0;
-      line-height: 1.5;
+      text-align: center;
+      margin: 0.8rem auto;
+      line-height: 1.6;
+      font-size: 1.3rem;
     }
 
-    .buttons {
-      margin-top: 2.5rem;
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .nav-links a {
+      background-color: #facc15;
+      color: #000;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      font-weight: bold;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    .cookie-info {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px dashed var(--primary);
+      border-radius: 12px;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: var(--text);
+      text-align: center;
+      max-width: 900px;
+    }
+
+    .cookie-info a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 1.2rem;
+      background: rgba(0,0,0,0.8);
+      font-size: 1rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 1.2rem;
     }
 
-    .buttons a {
-      padding: 1.3rem 2.6rem;
-      border-radius: 999px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: bold;
-      font-size: 1.5rem;
-      transition: transform 0.2s, opacity 0.2s;
-    }
-
-    .buttons a:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
-
-    .wall-btn { background: var(--primary); color: var(--background); }
-    .memory-btn { background: var(--secondary); }
-    .about-btn { background: var(--primary); color: var(--background); }
-    .contact-btn { background: var(--primary); color: var(--background); }
-    .insta-btn { background: var(--accent); }
-    .tiktok-btn { background: #000; border: 2px solid white; }
-
-    .banner-row {
-      margin-top: 3rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      max-width: 1000px;
-    }
-
-    .banner-demo {
-      background: rgba(0,0,0,0.7);
-      border: 2px dashed var(--primary);
-      color: var(--primary);
-      padding: 1.2rem;
-      flex: 1 1 300px;
-      max-width: 300px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      line-height: 1.5;
-    }
-
-    footer {
-      margin-top: 3rem;
-      background-color: #000;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      width: 100%;
-    }
-
-    footer nav a {
+    footer a {
       color: #facc15;
-      margin: 0 0.8rem;
       text-decoration: none;
-      font-size: 1.2rem;
       transition: opacity 0.2s;
     }
 
-    footer nav a:hover {
-      opacity: 0.8;
-    }
-
-    footer nav a.privacy, footer nav a.cookie {
-      color: #38bdf8;
-    }
-
-    footer p {
-      color: #666;
-      font-size: 0.9rem;
-      margin-top: 1rem;
+    footer a:hover {
+      opacity: 0.7;
     }
 
     @media (max-width: 768px) {
-      h1 { font-size: 2.8rem; }
-      p { font-size: 1.5rem; }
-      .buttons a { font-size: 1.4rem; width: 100%; max-width: 320px; }
-      .banner-demo { font-size: 1.3rem; }
-      footer nav a { display: block; margin: 0.4rem 0; }
+      h1 { font-size: 2.6rem; }
+      h2 { font-size: 1.8rem; }
+      p { font-size: 1.2rem; }
+      .nav-links a { padding: 0.9rem 1.8rem; }
+      .cookie-info { font-size: 1.1rem; padding: 1.2rem; }
+      footer { flex-direction: column; gap: 0.8rem; }
     }
 
     @media (max-width: 480px) {
-      h1 { font-size: 2.6rem; }
-      p { font-size: 1.8rem; line-height: 1.6; }
-      .buttons {
-        flex-direction: column;
-        gap: 1.5rem;
-        width: 100%;
-      }
-      .buttons a {
-        font-size: 1.7rem;
-        padding: 1.4rem 2.8rem;
-        width: 100%;
-        max-width: 90%;
-        margin: 0 auto;
-      }
-      .banner-demo {
-        font-size: 1.5rem;
-        padding: 1.4rem;
-        width: 100%;
-        max-width: 95%;
-      }
+      h1 { font-size: 2.4rem; }
+      h2 { font-size: 1.6rem; }
+      p { font-size: 1.1rem; }
+      .nav-links { flex-direction: column; }
+      .nav-links a { width: 90%; text-align: center; }
+      .cookie-info { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
-  <h1>NocturnaVoyage – Work in Progress</h1>
-  <p>🌌 Stiamo costruendo il tuo hub per la vita notturna globale.</p>
-  <p>🧱 Esplora il Wall, gioca al Memory con NFT unici e seguici sui social.</p>
-  <p>📲 Instagram e TikTok sempre aggiornati.</p>
-  <p>🚀 L'app ufficiale sta arrivando!</p>
-
-  <div class="buttons">
-    <a href="wall.html" class="wall-btn">🧱 Wall</a>
-    <a href="memory.html" class="memory-btn">🎮 Gioca al Memory</a>
-    <a href="about.html" class="about-btn">ℹ️ Chi siamo</a>
-    <a href="contatti.html" class="contact-btn">✉️ Contatti</a>
-    <a href="https://instagram.com/nocturnavoyage" target="_blank" class="insta-btn">📸 Instagram</a>
-    <a href="https://tiktok.com/@nocturnavoyage" target="_blank" class="tiktok-btn">🎵 TikTok</a>
+  <h1>🌙 NocturnaVoyage</h1>
+  <h2>Esplora la Nightlife Globale</h2>
+  <p>NocturnaVoyage è la tua guida digitale per scoprire il meglio della nightlife mondiale.  
+  Offriamo contenuti esclusivi, NFT personalizzati, consigli su hotel e voli, e una community internazionale di viaggiatori adulti.</p>
+  
+  <div class="nav-links">
+    <a href="about.html">ℹ️ Chi siamo</a>
+    <a href="wall.html">🧱 Wall</a>
+    <a href="buy.html">🛒 Acquista Blocco</a>
+    <a href="memory.html">🃏 Memory NFT</a>
+    <a href="contatti.html">✉️ Contatti</a>
   </div>
 
-  <div class="banner-row">
-    <div class="banner-demo">
-      📢 Banner DEMO – Qui puoi inserire annunci Google AdSense o altri network pubblicitari
-    </div>
-    <div class="banner-demo">
-      📢 Banner DEMO – Spazio pubblicitario per sponsorizzazioni o partner
-    </div>
+  <div class="cookie-info">
+    🍪 Questo sito utilizza cookie tecnici e di terze parti (come Google AdSense o Analytics) per offrirti la migliore esperienza possibile, analizzare il traffico e mostrare annunci personalizzati. Navigando accetti il loro uso. <br>
+    👉 Leggi tutti i dettagli nella nostra <a href="cookie.html">Cookie Policy</a>.
   </div>
 
   <footer>
-    <nav>
-      <a href="index.html">🏠 Home</a>
-      <a href="about.html">📖 Chi siamo</a>
-      <a href="contatti.html">✉️ Contatti</a>
-      <a href="privacy.html" class="privacy">🔒 Privacy Policy</a>
-      <a href="cookie.html" class="cookie">🍪 Cookie Policy</a>
-    </nav>
-    <p>© 2025 NocturnaVoyage. Tutti i diritti riservati.</p>
+    <a href="index.html">🏠 Home</a>
+    <a href="about.html">ℹ️ Chi siamo</a>
+    <a href="wall.html">🧱 Wall</a>
+    <a href="buy.html">🛒 Acquista</a>
+    <a href="memory.html">🃏 Memory</a>
+    <a href="contatti.html">✉️ Contatti</a>
+    <a href="privacy.html">📜 Privacy Policy</a>
+    <a href="cookie.html">🍪 Cookie Policy</a>
   </footer>
 </body>
 </html>
