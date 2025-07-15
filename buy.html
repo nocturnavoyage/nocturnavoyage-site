@@ -144,7 +144,7 @@
       Acquista il tuo blocco personalizzato sul Wall di NocturnaVoyage! Ogni blocco rappresenta uno spazio unico e permanente dove puoi mostrare link, immagini e messaggi scelti da te.  
     </p>
     <p>
-      Con 1€ ottieni la possibilità di caricare fino a 10 link e 10 immagini, visibili a tutti i visitatori del sito. È perfetto per promuovere il tuo brand, i tuoi profili social, il tuo sito web o semplicemente lasciare un segno indelebile nel nostro progetto.  
+      Con 1€ ottieni la possibilità di dare un titolo al tuo blocco, caricare fino a 10 link e 10 immagini, visibili a tutti i visitatori del sito. È perfetto per promuovere il tuo brand, i tuoi profili social, il tuo sito web o semplicemente lasciare un segno indelebile nel nostro progetto.  
     </p>
     <p>
       Il pagamento è sicuro e semplice, e una volta completato riceverai la conferma via email. Il tuo blocco resterà sul nostro Wall virtuale come parte della community NocturnaVoyage, pronto per essere visto e cliccato da viaggiatori e appassionati di nightlife di tutto il mondo.  
@@ -152,7 +152,10 @@
 
     <form>
       <h3>Personalizza il tuo Blocco</h3>
-      <p>Inserisci fino a 10 link e 10 immagini che saranno visibili sul tuo blocco nel Wall!</p>
+      <p>Inserisci il titolo, fino a 10 link e 10 immagini che saranno visibili sul tuo blocco nel Wall!</p>
+
+      <h4>🏷️ Titolo del Blocco</h4>
+      <input type="text" placeholder="Titolo del tuo blocco" id="blockTitle">
 
       <h4>🔗 Link (max 10)</h4>
       <div id="links"></div>
@@ -177,6 +180,9 @@
     const block = urlParams.get('block') || 1;
     document.getElementById('blockNumber').innerText = block;
 
+    // Campo Titolo - già presente in HTML
+
+    // Genera i 10 campi link
     const linksContainer = document.getElementById('links');
     for(let i = 1; i <= 10; i++) {
       const input = document.createElement('input');
@@ -184,6 +190,7 @@
       linksContainer.appendChild(input);
     }
 
+    // Genera i 10 campi immagini
     const imagesContainer = document.getElementById('images');
     for(let i = 1; i <= 10; i++) {
       const input = document.createElement('input');
@@ -193,4 +200,3 @@
   </script>
 </body>
 </html>
-<!-- Forzo nuova build -->
