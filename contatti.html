@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contattaci - Nocturnavoyage</title>
   <meta name="description" content="Contattaci – Collaborazioni, informazioni commerciali o supporto sul progetto NocturnaVoyage. Siamo sempre disponibili.">
-  <link rel="canonical" href="https://www.nocturnavoyage.com/contatti.html" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
   <style>
     body {
@@ -127,6 +126,10 @@
   </style>
 </head>
 <body>
+<!-- Start cookieyes banner -->
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/6bb0da90cee3d7ae8ffa7824/script.js"></script>
+<!-- End cookieyes banner -->
+
   <h1>✉️ Contattaci</h1>
   <div class="email-box">
     <p>Contattaci per qualsiasi informazione, collaborazione o proposta commerciale!</p>
@@ -149,14 +152,31 @@
     <a href="privacy.html">📜 Privacy Policy</a>
     <a href="cookie.html">🍪 Cookie Policy</a>
   </footer>
+
+  <div id="cookie-banner">
+    Questo sito usa cookie per offrirti un'esperienza migliore. <a href="cookie.html">Leggi di più</a>.
+    <button onclick="acceptCookies()">OK</button>
+  </div>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MLG2L3SFCC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MLG2L3SFCC');
+
+    function acceptCookies() {
+      localStorage.setItem('cookieAccepted', 'true');
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+
+    window.onload = function () {
+      if (!localStorage.getItem('cookieAccepted')) {
+        document.getElementById('cookie-banner').style.display = 'block';
+      }
+    }
+  </script>
+
 </body>
 </html>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MLG2L3SFCC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MLG2L3SFCC');
-</script>
