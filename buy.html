@@ -157,7 +157,10 @@
       <h3>Personalizza il tuo Blocco</h3>
       <p>Inserisci fino a 10 link e 10 immagini che saranno visibili sul tuo blocco nel Wall!</p>
 
-      <h4>🔗 Link (max 10)</h4>
+      
+      <h4>🏷️ Titolo del Blocco</h4>
+      <input type="text" id="blockTitle" placeholder="Es. Il mio brand, la mia pagina, ecc.">
+<h4>🔗 Link (max 10)</h4>
       <div id="links"></div>
 
       <h4>🖼️ Immagini (max 10)</h4>
@@ -195,10 +198,7 @@
     }
   </script>
 
-  <div id="cookie-banner">
-    Questo sito usa cookie per offrirti un'esperienza migliore. <a href="cookie.html">Leggi di più</a>.
-    <button onclick="acceptCookies()">OK</button>
-  </div>
+  
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MLG2L3SFCC"></script>
@@ -216,6 +216,55 @@
     window.onload = function () {
       if (!localStorage.getItem('cookieAccepted')) {
         document.getElementById('cookie-banner').style.display = 'block';
+      }
+    }
+  
+    document.querySelector("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const title = document.getElementById("blockTitle").value;
+      console.log("Titolo del blocco:", title);
+    });
+</script>
+
+
+  <!-- Cookie Banner GDPR-Compliant -->
+  <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.9); color: white; padding: 1rem; display: none; z-index: 9999; text-align: center;">
+    Questo sito utilizza cookie per migliorare l'esperienza utente. <a href="cookie.html" style="color: #facc15;">Leggi di più</a>.
+    <br><br>
+    <button onclick="acceptCookies()" style="margin: 0 1rem; padding: 0.5rem 1rem; background: #22c55e; color: white; border: none; border-radius: 5px;">Accetta</button>
+    <button onclick="rejectCookies()" style="margin: 0 1rem; padding: 0.5rem 1rem; background: #ef4444; color: white; border: none; border-radius: 5px;">Rifiuta</button>
+  </div>
+
+  <script>
+    function acceptCookies() {
+      localStorage.setItem('cookieConsent', 'accepted');
+      document.getElementById('cookie-banner').style.display = 'none';
+      loadGoogleAnalytics();
+    }
+
+    function rejectCookies() {
+      localStorage.setItem('cookieConsent', 'rejected');
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+
+    function loadGoogleAnalytics() {
+      var script = document.createElement('script');
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-MLG2L3SFCC";
+      script.async = true;
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MLG2L3SFCC');
+    }
+
+    window.onload = function () {
+      const consent = localStorage.getItem('cookieConsent');
+      if (!consent) {
+        document.getElementById('cookie-banner').style.display = 'block';
+      } else if (consent === 'accepted') {
+        loadGoogleAnalytics();
       }
     }
   </script>
