@@ -1,2 +1,5 @@
 User-agent: *
-Allow: /
+Disallow: /cookie.html
+Disallow: /privacy.html
+Disallow: /memory.html
+Disallow: /index.html

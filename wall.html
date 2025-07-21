@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wall - NocturnaVoyage</title>
-  <meta name="description" content="Scopri il Wall di NocturnaVoyage: 1.000.000 di blocchi unici a 1€. Personalizza il tuo spazio e lascia il tuo segno per sempre.">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wall - NocturnaVoyage</title>
+<meta content="Scopri il Wall di NocturnaVoyage: 1.000.000 di blocchi unici a 1€. Personalizza il tuo spazio e lascia il tuo segno per sempre." name="description"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --grid-rows: 15;
       --grid-cols: 30;
@@ -181,62 +182,53 @@
 </head>
 <body>
 <!-- Start cookieyes banner -->
-<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/6bb0da90cee3d7ae8ffa7824/script.js"></script>
+<script id="cookieyes" src="https://cdn-cookieyes.com/client_data/6bb0da90cee3d7ae8ffa7824/script.js" type="text/javascript"></script>
 <!-- End cookieyes banner -->
-
-  <h1>🧱 WALL - Il Muro Virtuale</h1>
-
-  <div class="announcement">
+<h1>🧱 WALL - Il Muro Virtuale</h1>
+<div class="announcement">
     🚀 Presto disponibile – Acquista il tuo blocco a 1€ ciascuno e diventa parte del nostro progetto!
   </div>
-
-  <div class="description">
-    📌 Benvenuto nel nostro Muro Virtuale!<br>
-    Qui puoi acquistare uno dei 1.000.000 di blocchi unici a soli 1€ ciascuno. Ogni blocco rappresenta uno spazio permanente che puoi personalizzare con il tuo messaggio, un link e un’immagine a tua scelta.<br><br>
-    ✅ <strong>Perché acquistare un blocco?</strong><br>
-    - Diventi parte della storia di NocturnaVoyage.<br>
-    - Mostri il tuo brand, un profilo social o un ricordo speciale.<br>
-    - Il tuo spazio resterà visibile a tutti i visitatori per sempre.<br><br>
-    🛒 Il processo di acquisto è semplice e veloce. Dopo la pubblicazione, potrai modificare i contenuti in qualsiasi momento.<br><br>
-    ✨ Unisciti alla community e lascia il tuo segno nel nostro progetto dedicato alla nightlife e alla cultura digitale.<br><br>
-    🟡 Blocchi visibili: <span id="visibleCount">450 / 1.000.000</span><br>
+<div class="description">
+    📌 Benvenuto nel nostro Muro Virtuale!<br/>
+    Qui puoi acquistare uno dei 1.000.000 di blocchi unici a soli 1€ ciascuno. Ogni blocco rappresenta uno spazio permanente che puoi personalizzare con il tuo messaggio, un link e un’immagine a tua scelta.<br/><br/>
+    ✅ <strong>Perché acquistare un blocco?</strong><br/>
+    - Diventi parte della storia di NocturnaVoyage.<br/>
+    - Mostri il tuo brand, un profilo social o un ricordo speciale.<br/>
+    - Il tuo spazio resterà visibile a tutti i visitatori per sempre.<br/><br/>
+    🛒 Il processo di acquisto è semplice e veloce. Dopo la pubblicazione, potrai modificare i contenuti in qualsiasi momento.<br/><br/>
+    ✨ Unisciti alla community e lascia il tuo segno nel nostro progetto dedicato alla nightlife e alla cultura digitale.<br/><br/>
+    🟡 Blocchi visibili: <span id="visibleCount">450 / 1.000.000</span><br/>
     📍 Vista: Riga <span id="rowOffset">0</span>, Colonna <span id="colOffset">0</span>
-  </div>
-
-  <div class="buttons">
-    <a href="index.html">🏠 Casa</a>
-    <a href="memory.html">🎮 Memory</a>
-    <button onclick="move('up')">⬆️ Su</button>
-    <button onclick="move('down')">⬇️ Giù</button>
-    <button onclick="move('left')">⬅️ Sinistra</button>
-    <button onclick="move('right')">➡️ Destra</button>
-    <button onclick="resetView()">🔄 Ripristina</button>
-  </div>
-
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Cerca nel Wall..." />
-    <button onclick="searchBlocks()">🔍 Cerca</button>
-  </div>
-  <div class="result-message" id="resultMessage"></div>
-
-  <div class="wall-container" id="wall"></div>
-
-  <div class="banner">
+</div>
+<div class="buttons">
+<a href="index.html">🏠 Casa</a>
+<a href="memory.html">🎮 Memory</a>
+<button onclick="move('up')">⬆️ Su</button>
+<button onclick="move('down')">⬇️ Giù</button>
+<button onclick="move('left')">⬅️ Sinistra</button>
+<button onclick="move('right')">➡️ Destra</button>
+<button onclick="resetView()">🔄 Ripristina</button>
+</div>
+<div class="search-bar">
+<input id="searchInput" placeholder="Cerca nel Wall..." type="text"/>
+<button onclick="searchBlocks()">🔍 Cerca</button>
+</div>
+<div class="result-message" id="resultMessage"></div>
+<div class="wall-container" id="wall"></div>
+<div class="banner">
     📢 Banner pubblicitario DEMO – qui puoi inserire annunci da Google AdSense o altri network.
   </div>
-
-  <footer>
-    <nav>
-      <a href="index.html">🏠 Home</a>
-      <a href="about.html">📖 Chi siamo</a>
-      <a href="contatti.html">✉️ Contatti</a>
-      <a href="privacy.html" class="privacy">🔒 Privacy Policy</a>
-      <a href="cookie.html" class="cookie">🍪 Cookie Policy</a>
-    </nav>
-    <p>© 2025 NocturnaVoyage. Tutti i diritti riservati.</p>
-  </footer>
-
-  <script>
+<footer>
+<nav>
+<a href="index.html">🏠 Home</a>
+<a href="about.html">📖 Chi siamo</a>
+<a href="contatti.html">✉️ Contatti</a>
+<a class="privacy" href="privacy.html">🔒 Privacy Policy</a>
+<a class="cookie" href="cookie.html">🍪 Cookie Policy</a>
+</nav>
+<p>© 2025 NocturnaVoyage. Tutti i diritti riservati.</p>
+</footer>
+<script>
     const rows = 15;
     const cols = 30;
     let rowOffset = 0;
