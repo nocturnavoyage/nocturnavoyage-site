@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – nocturnavoyage</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: #000;
+      color: #facc15;
+      font-family: 'Archivo Black', sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      background: #111;
+      padding: 2rem;
+      border-radius: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #222;
+      color: #fff;
+      font-family: inherit;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      background: #facc15;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .note {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔐 Login / Registrati</h1>
+  <form id="authForm">
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button type="submit">Accedi</button>
+    <div class="note">Non hai un account? Verrà creato automaticamente.</div>
+  </form>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+    const supabase = createClient(
+      'https://xwrzskanyxhyudenjgam.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3cnpza2FueHlodWRlbmpnY2FtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ0MTQxNTUsImV4cCI6MjA2OTk5MDE1NX0.dR9fi1nrHhsGTncAgnEKCQS1Iak2YIyJKLst7CsY3U4'
+    )
+
+    const form = document.getElementById("authForm")
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault()
+      const email = document.getElementById("email").value
+      const password = document.getElementById("password").value
+
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      })
+
+      if (error && error.message.includes("Invalid login credentials")) {
+        // Prova a registrare
+        const { error: signUpError } = await supabase.auth.signUp({ email, password })
+        if (signUpError) return alert("❌ " + signUpError.message)
+        alert("✅ Registrazione completata. Controlla la tua email.")
+        return
+      }
+
+      if (error) {
+        alert("❌ " + error.message)
+      } else {
+        alert("✅ Login riuscito!")
+        const redirectTo = sessionStorage.getItem("returnTo") || "wall.html"
+        window.location.href = redirectTo
+      }
+    })
+  </script>
+</body>
+</html>

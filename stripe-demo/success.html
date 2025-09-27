@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Successful</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Archivo Black', sans-serif;
+      background: black url('pubblicita.png') center/cover fixed no-repeat;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.8rem;
+      color: #facc15;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      background-color: #facc15;
+      color: black;
+      padding: 0.9rem 1.8rem;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>✅ Payment Successful</h1>
+  <p id="success-message">Thank you! Your block has been activated.</p>
+  <a class="btn" href="wall.html">🧱 Go to the Wall</a>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const block = params.get('block') || '—';
+    const plan = params.get('plan') || '—';
+    document.getElementById("success-message").textContent =
+      `Thank you! Block #${block}  has been successfully activated.`;
+  </script>
+</body>
+</html>

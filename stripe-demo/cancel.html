@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Cancelled</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Archivo Black', sans-serif;
+      background: black url('pubblicita.png') center/cover fixed no-repeat;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.8rem;
+      color: #ff4d4f;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      background-color: #facc15;
+      color: black;
+      padding: 0.9rem 1.8rem;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>❌ Payment Cancelled</h1>
+  <p id="cancel-message">Your payment has been cancelled.</p>
+  <a class="btn" href="buy.html">🔁 Try Again</a>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const block = params.get('block') || '—';
+    const plan = params.get('plan') || '—';
+    document.getElementById("cancel-message").textContent =
+      `Payment for block #${block}  was cancelled.`;
+  </script>
+</body>
+</html>

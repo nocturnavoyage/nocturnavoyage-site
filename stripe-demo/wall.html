@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="index,follow"/>
+  <title translate="no">WALL – nocturnavoyage</title>
+  <meta name="description" content="Claim your own block on the nocturnavoyage Wall – 1,000,000 blocks, €2/month each. Chat, followers with weekly ranking, mentions, pinned messages, and full post control."/>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --brand:#facc15; --bg:#0b0b0b; }
+    body { margin:0; padding:0; background:var(--bg); color:white; font-family:'Inter',sans-serif; }
+    h1 { text-align:center; color:var(--brand); font-family:'Archivo Black',sans-serif; margin:1rem 0 .5rem; }
+    p.subhead { text-align:center; color:var(--brand); font-weight:700; margin:0 0 1rem; }
+    .ribbon, .controls, .search-bar, footer { text-align:center; margin:.5rem auto; max-width:1100px; }
+    .tag { background:var(--brand); color:#000; padding:.35rem .8rem; margin:.2rem; border-radius:20px; display:inline-block; font-weight:bold; font-size:.85rem; }
+    .btn { background:var(--brand); color:#000; font-weight:bold; padding:.45rem .9rem; border-radius:20px; border:none; margin:.2rem; cursor:pointer; }
+    .btn:hover { opacity:.85; }
+    .search-input { padding:.45rem .9rem; border-radius:20px; border:none; width:220px; text-align:center; }
+    .description-box { background:rgba(0,0,0,.78); border:1px solid #333; border-radius:12px; padding:1.2rem; margin:1rem auto; max-width:1050px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; }
+    .feature { background:rgba(255,255,255,.05); padding:.85rem; border-radius:10px; border:1px solid #222; }
+    .feature b { color:var(--brand); }
+    .botguard { max-width:1050px; margin:1rem auto; background:#220000; border:2px solid red; border-radius:12px; padding:1rem; color:#ff6666; font-weight:600; text-align:center; }
+    .botguard .shield { display:inline-block; background:red; color:white; padding:.3rem .6rem; border-radius:6px; margin-bottom:.5rem; font-weight:900; }
+    .wall-container { display:grid; grid-template-columns:repeat(30,1fr); grid-template-rows:repeat(15,1fr); gap:1px; width:90vw; max-width:1050px; height:620px; background:black; border:2px solid #333; margin:1rem auto; }
+    .block { background-color:var(--brand); border:1px solid #000; display:flex; align-items:center; justify-content:center; font-size:.65rem; font-weight:bold; color:black; cursor:pointer; transition:.2s; user-select:none; }
+    .block:hover { opacity:.7; }
+    footer a { color:var(--brand); margin:0 .6rem; text-decoration:none; }
+    footer p { color:#666; font-size:.85rem; }
+  </style>
+</head>
+<body>
+  <h1>WALL – <span translate="no">nocturnavoyage</span></h1>
+  <p class="subhead">📲 Use your block as a <u>link in bio</u> for Instagram, TikTok, YouTube or anywhere else. It's your personal, customizable, and interactive space.</p>
+
+  <div class="ribbon">
+    <span class="tag">15-day free trial</span>
+    <span class="tag">€2 / month</span>
+    <span class="tag">Cancel anytime</span>
+    <span class="tag">1,000,000 blocks</span>
+    <span class="tag">Mobile‑first</span>
+    <span class="tag">SEO‑friendly</span>
+    <span class="tag">QR ready</span>
+  </div>
+
+  <div class="description-box">
+    <div class="feature">💬 <b>Public Chat (optional):</b> let people comment under your block; turn it on/off anytime.</div>
+    <div class="feature">📈 <b>Followers + Weekly Ranking:</b> users can follow your block; rankings auto‑update.</div>
+    <div class="feature">🧹 <b>Auto-clean:</b> messages without replies/reactions are deleted after 30 days (pins excluded).</div>
+    <div class="feature">📌 <b>Pinned Messages:</b> pin up to 5 key posts to the top of your chat.</div>
+    <div class="feature">@ <b>Mentions:</b> tag users or other blocks (e.g., @block321) with clickable links.</div>
+    <div class="feature">🧩 <b>Per-post controls:</b> enable/disable <b>replies</b> and <b>reactions</b> per post.</div>
+    <div class="feature">♻️ <b>Unlimited edits:</b> change text, links, images, and settings anytime, even after publishing.</div>
+    <div class="feature">🖼️ <b>Custom design:</b> add your Canva background; showcase up to 20 links + 20 images.</div>
+  </div>
+
+  <section class="controls">
+    <button class="btn" id="btn-up">⬆️ Up</button>
+    <button class="btn" id="btn-down">⬇️ Down</button>
+    <button class="btn" id="btn-left">⬅️ Left</button>
+    <button class="btn" id="btn-right">➡️ Right</button>
+    <button class="btn" id="btn-reset">🔄 Reset</button>
+  </section>
+
+  <div class="search-bar">
+    <input id="searchInput" class="search-input" placeholder="Search block number…" type="text"/>
+    <button class="btn" id="btn-search">🔍 Search</button>
+  </div>
+
+  <section class="botguard">
+    <div class="shield">🛡 BotGuard</div>
+    <p>
+      Automatic anti‑spam & content filter active (10 languages). Offensive words, insults, and forbidden terms are blocked in Wall, chats, and descriptions.
+      By using this site, you agree to automatic moderation and filtering.
+    </p>
+  </section>
+
+  <div class="wall-container" id="wall"></div>
+
+  <footer>
+    <nav>
+      <a href="index.html">🏠 Home</a>
+      <a href="about.html">📖 About</a>
+      <a href="contact.html">✉️ Contact</a>
+    </nav>
+    <p>© 2025 nocturnavoyage. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const rows = 15, cols = 30, TOTAL_ROWS = 1000, TOTAL_COLS = 1000;
+    let rowOffset = 0, colOffset = 0;
+    const wallContainer = document.getElementById('wall');
+
+    function drawGrid() {
+      wallContainer.innerHTML = '';
+      const startBlock = (rowOffset * TOTAL_COLS) + colOffset;
+      let n = startBlock + 1;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const current = n++;
+          const el = document.createElement('div');
+          el.className = 'block';
+          el.textContent = current;
+          el.title = 'Block #' + current;
+          el.addEventListener('click', () => {
+            window.location.href = `buy.html?block=${current}`;
+          });
+          wallContainer.appendChild(el);
+        }
+      }
+    }
+
+    function move(dir) {
+      if (dir === 'up'   && rowOffset > 0) rowOffset -= rows;
+      if (dir === 'down' && rowOffset + rows < TOTAL_ROWS) rowOffset += rows;
+      if (dir === 'left' && colOffset > 0) colOffset -= cols;
+      if (dir === 'right'&& colOffset + cols < TOTAL_COLS) colOffset += cols;
+      drawGrid();
+    }
+
+    function resetView() { rowOffset = 0; colOffset = 0; drawGrid(); }
+
+    function searchBlocks() {
+      const value = document.getElementById('searchInput').value.trim();
+      if (!value) return;
+      const num = parseInt(value, 10);
+      if (isNaN(num) || num < 1 || num > (TOTAL_ROWS * TOTAL_COLS)) {
+        alert('Enter a valid block number.');
+        return;
+      }
+      const rowIndex = Math.floor((num - 1) / TOTAL_COLS);
+      const colIndex = (num - 1) % TOTAL_COLS;
+      rowOffset = Math.floor(rowIndex / rows) * rows;
+      colOffset = Math.floor(colIndex / cols) * cols;
+      drawGrid();
+    }
+
+    document.getElementById('btn-up').onclick = () => move('up');
+    document.getElementById('btn-down').onclick = () => move('down');
+    document.getElementById('btn-left').onclick = () => move('left');
+    document.getElementById('btn-right').onclick = () => move('right');
+    document.getElementById('btn-reset').onclick = resetView;
+    document.getElementById('btn-search').onclick = searchBlocks;
+
+    drawGrid();
+  </script>
+</body>
+</html>

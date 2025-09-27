@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /buy.html
 Disallow: /cookie.html
 Disallow: /privacy.html
 Disallow: /memory.html

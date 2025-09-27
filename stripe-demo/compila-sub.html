@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Submit Premium Block - nocturnavoyage</title>
+  <meta name="description" content="Fill out the form to submit your €2/month premium block on nocturnavoyage." />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Archivo Black', sans-serif;
+      background-color: #000;
+      color: #facc15;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1, label {
+      margin-top: 20px;
+      display: block;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      font-family: 'Archivo Black', sans-serif;
+      margin-top: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #222;
+      color: #fff;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      margin-top: 30px;
+      background-color: #facc15;
+      color: #000;
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #charCount {
+      font-size: 0.9rem;
+      text-align: right;
+      color: #ccc;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Submit Your Premium Block – €2/month</h1>
+
+  <form onsubmit="handleSubmit(event)">
+    <label for="title">Title (max 100 characters)</label>
+    <input type="text" id="title" name="title" maxlength="100" required />
+
+    <label for="description">Description (max 10,000 characters)</label>
+    <textarea id="description" name="description" maxlength="10000" rows="10" required></textarea>
+    <div id="charCount">10,000 characters remaining</div>
+
+    <h2>Links (max 15)</h2>
+    <div id="links"></div>
+
+    <h2>Images (max 15 URLs)</h2>
+    <div id="images"></div>
+
+    <button type="submit">Submit Block</button>
+  </form>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+    const supabase = createClient(
+      'https://xwrzskanyxhyudenjgam.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3cnpza2FueHlodWRlbmpnY2FtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ0MTQxNTUsImV4cCI6MjA2OTk5MDE1NX0.dR9fi1nrHhsGTncAgnEKCQS1Iak2YIyJKLst7CsY3U4'
+    )
+
+    const bloccoId = new URLSearchParams(window.location.search).get("block")
+    if (!bloccoId) {
+      document.body.innerHTML = "<h2>⚠️ Block number is missing in the URL.</h2>"
+    }
+
+    function createInputs(containerId, count, placeholder) {
+      const container = document.getElementById(containerId)
+      for (let i = 1; i <= count; i++) {
+        const label = document.createElement('label')
+        label.textContent = `${placeholder} ${i}`
+        const input = document.createElement('input')
+        input.type = 'url'
+        input.name = `${containerId}_${i}`
+        input.placeholder = `https://...`
+        container.appendChild(label)
+        container.appendChild(input)
+      }
+    }
+
+    createInputs("links", 15, "Link")
+    createInputs("images", 15, "Image URL")
+
+    const descriptionField = document.getElementById("description")
+    const charCount = document.getElementById("charCount")
+    descriptionField.addEventListener("input", () => {
+      const remaining = 10000 - descriptionField.value.length
+      charCount.textContent = `${remaining.toLocaleString()} characters remaining`
+    })
+
+    async function handleSubmit(event) {
+      event.preventDefault()
+      const form = event.target
+      const formData = new FormData(form)
+
+      const title = formData.get("title")
+      const description = formData.get("description")
+      const links = []
+      const images = []
+
+      for (let i = 1; i <= 15; i++) {
+        const link = formData.get(`links_${i}`)
+        if (link) links.push(link)
+
+        const img = formData.get(`images_${i}`)
+        if (img) images.push(img)
+      }
+
+      const { error } = await supabase
+        .from("blocks")
+        .update({
+          title,
+          description,
+          links,
+          images
+        })
+        .eq("block_number", bloccoId)
+
+      if (error) {
+        alert("❌ Errore nel salvataggio: " + error.message)
+      } else {
+        alert("✅ Blocco aggiornato con successo!")
+        window.location.href = `blocco.html?block=${bloccoId}`
+      }
+    }
+  </script>
+</body>
+</html>
