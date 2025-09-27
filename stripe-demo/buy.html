@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acquista Blocco – nocturnavoyage</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #000;
+      color: #facc15;
+      font-family: 'Archivo Black', sans-serif;
+      padding: 2rem;
+      text-align: center;
+    }
+    .box {
+      max-width: 700px;
+      margin: auto;
+      background: #111;
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background-color: #facc15;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>🧱 Attiva il tuo Blocco</h1>
+    <p>
+      Acquista il tuo blocco personale per <strong>2€/mese</strong><br />
+      con <strong>15 giorni di prova gratuita</strong>!
+    </p>
+    <p>
+      Potrai inserire <strong>titolo, descrizione, 15 link, 15 immagini e usare la chat</strong>.<br/>
+      Il blocco sarà sempre visibile sul Wall in prima pagina finché rimane attivo.
+    </p>
+    <button id="checkoutBtn">Attiva ora</button>
+  </div>
+
+  <script>
+    const block = new URLSearchParams(window.location.search).get("block");
+    if (!block) {
+      alert("❌ Nessun numero di blocco specificato.");
+      location.href = "wall.html";
+    }
+
+    document.getElementById("checkoutBtn").addEventListener("click", async () => {
+      window.location.href = `checkout.html?block=${block}`;
+    });
+  </script>
+</body>
+</html>

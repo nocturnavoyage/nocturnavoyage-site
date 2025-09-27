@@ -1,2 +1,7 @@
 User-agent: *
-Allow: /
+Disallow: /buy.html
+Disallow: /cookie.html
+Disallow: /privacy.html
+Disallow: /memory.html
+
+Sitemap: https://www.nocturnavoyage.com/sitemap.xml

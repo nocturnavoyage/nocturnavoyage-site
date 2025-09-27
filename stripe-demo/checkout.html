@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout – Conferma il tuo Blocco | nocturnavoyage</title>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Archivo Black', sans-serif;
+      background: black url('pubblicita.png') center/cover fixed no-repeat;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: rgba(0,0,0,0.85);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: left;
+    }
+    h1 { font-size: 2.2rem; color: #facc15; text-align: center; }
+    .row { display: flex; justify-content: space-between; margin: 0.5rem 0; }
+    .cta {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background: #facc15;
+      color: black;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 1.05rem;
+    }
+    .cta:hover { opacity: 0.9; }
+    .note { font-size: 0.9rem; color: #ccc; margin-top: 1rem; }
+    form { margin-top: 1rem; }
+    .checkbox-line { margin-top: 1rem; }
+    footer { margin-top: 2rem; text-align: center; font-size: 0.9rem; color: #aaa; }
+  </style>
+</head>
+<body>
+
+  <h1>Checkout – Attiva il tuo Blocco</h1>
+
+  <div class="container">
+    <div class="row"><div>🔢 Blocco selezionato:</div><div>#<span id="blockNumber">?</span></div></div>
+    <div class="row"><div>💰 Prezzo:</div><div>2€ al mese</div></div>
+    <div class="row"><div>🕒 Prova gratuita:</div><div>15 giorni</div></div>
+    <div class="row"><div>🔁 Rinnovo:</div><div>Automatico ogni mese</div></div>
+    <div class="row"><div>❌ Rimborsi:</div><div>Solo prima della scadenza della prova</div></div>
+
+    <div class="checkbox-line">
+      <label>
+        <input type="checkbox" id="acceptTerms" />
+        Accetto i <a href="terms.html" target="_blank" style="color:#facc15;">Termini e Condizioni</a> e la Politica sui Rimborsi.
+      </label>
+    </div>
+
+    <form id="payForm" method="POST" action="/create-checkout-session">
+      <input type="hidden" name="block" id="f_block" value="">
+      <input type="hidden" name="plan" value="sub">
+      <input type="hidden" name="mode" value="subscription">
+      <button type="submit" class="cta" id="payBtn" disabled>✅ Procedi al pagamento</button>
+    </form>
+
+    <p class="note">
+      Il pagamento è ricorrente. Puoi disdire in qualsiasi momento dalle impostazioni Stripe.<br>
+      Nessun addebito se cancelli prima della fine del periodo di prova.
+    </p>
+  </div>
+
+  <footer>
+    <a href="wall.html" style="color:#facc15;">⬅ Torna al Wall</a>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const block = params.get("block") || "1";
+    document.getElementById("blockNumber").textContent = block;
+    document.getElementById("f_block").value = block;
+
+    const checkbox = document.getElementById("acceptTerms");
+    const payBtn = document.getElementById("payBtn");
+    checkbox.addEventListener("change", () => {
+      payBtn.disabled = !checkbox.checked;
+    });
+
+    document.getElementById("payForm").addEventListener("submit", (e) => {
+      if (!checkbox.checked) {
+        e.preventDefault();
+        alert("✅ Devi accettare i termini per procedere.");
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register Venue - nocturnavoyage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #facc15;
+      font-family: 'Archivo Black', sans-serif;
+      padding: 2rem;
+      text-align: center;
+    }
+    input, textarea, button {
+      width: 80%;
+      padding: 0.7rem 1rem;
+      font-size: 1rem;
+      margin: 0.5rem auto;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      display: block;
+    }
+    #output, #links-preview {
+      margin-top: 1rem;
+      color: #fff;
+      font-size: 0.95rem;
+      background: rgba(255,255,255,0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      white-space: pre-wrap;
+    }
+    button {
+      cursor: pointer;
+      background-color: #facc15;
+      color: #000;
+    }
+    a {
+      color: #facc15;
+      display: inline-block;
+      margin: 0.2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>📍 Register Your Venue</h1>
+  <p>Detect your position or fill in your location manually.</p>
+
+  <button onclick="detectLocation()">📡 Detect My Location</button>
+
+  <div id="output">Waiting for location...</div>
+
+  <form id="venue-form">
+    <input type="text" id="continent" placeholder="🌍 Continent" required />
+    <input type="text" id="country" placeholder="🇺🇳 Country" required />
+    <input type="text" id="city" placeholder="🏙️ City" required onchange="manualCityChanged()" />
+    <input type="text" id="address" placeholder="📌 Address (optional)" />
+    <input type="text" id="lat" placeholder="🧭 Latitude" readonly />
+    <input type="text" id="lon" placeholder="🧭 Longitude" readonly />
+    <input type="hidden" id="manual_city" value="false" />
+
+    <textarea placeholder="📖 Describe your venue..." rows="4"></textarea>
+    <button type="submit">✅ Submit Venue</button>
+  </form>
+
+  <div id="links-preview"></div>
+
+  <script>
+    function manualCityChanged() {
+      document.getElementById('manual_city').value = "true";
+    }
+
+    async function detectLocation() {
+      const output = document.getElementById('output');
+      if (!navigator.geolocation) {
+        output.textContent = "❌ Geolocation not supported by your browser.";
+        return;
+      }
+
+      output.textContent = "📡 Detecting location...";
+
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        document.getElementById('lat').value = lat;
+        document.getElementById('lon').value = lon;
+
+        const apiKey = "805655657c24551d9b5c9288d81ede6";
+        const url = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lon}&key=${apiKey}&language=en&pretty=1`;
+
+        try {
+          const res = await fetch(url);
+          const data = await res.json();
+
+          if (data.results && data.results.length > 0) {
+            const geo = data.results[0].components;
+
+            document.getElementById('continent').value = geo.continent || "";
+            document.getElementById('country').value = geo.country || "";
+            document.getElementById('city').value = geo.city || geo.town || geo.village || "";
+            document.getElementById('address').value = data.results[0].formatted || "";
+            document.getElementById('manual_city').value = "false";
+
+            output.textContent = `✅ Location detected:
+🌍 ${geo.continent}
+🇺🇳 ${geo.country}
+🏙️ ${geo.city || geo.town || geo.village}
+📌 ${data.results[0].formatted}`;
+          } else {
+            output.textContent = "⚠️ No results from geocoding API.";
+          }
+          updateLinks();
+        } catch (err) {
+          output.textContent = "❌ Error retrieving location: " + err.message;
+        }
+      }, () => {
+        output.textContent = "⚠️ Permission denied or error getting location.";
+      });
+    }
+
+    function updateLinks() {
+      const lat = document.getElementById("lat").value;
+      const lon = document.getElementById("lon").value;
+      const links = document.getElementById("links-preview");
+
+      if (lat && lon) {
+        const gmaps = `https://www.google.com/maps?q=${lat},${lon}`;
+        const waze = `https://waze.com/ul?ll=${lat},${lon}&navigate=yes`;
+        links.innerHTML = `
+📍 Public navigation links:
+
+🔗 <a href="${gmaps}" target="_blank">Google Maps</a>  
+🚗 <a href="${waze}" target="_blank">Waze</a>
+        `;
+      } else {
+        links.innerHTML = "";
+      }
+    }
+
+    document.getElementById("venue-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      updateLinks();
+      const values = {
+        continent: document.getElementById("continent").value,
+        country: document.getElementById("country").value,
+        city: document.getElementById("city").value,
+        address: document.getElementById("address").value,
+        lat: document.getElementById("lat").value,
+        lon: document.getElementById("lon").value,
+        manual_city: document.getElementById("manual_city").value
+      };
+      alert("✅ Data ready to send to Supabase:\n" + JSON.stringify(values, null, 2));
+    });
+  </script>
+</body>
+</html>

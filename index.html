@@ -1,102 +1,102 @@
+
 <!DOCTYPE html>
-<html lang="it">
+
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NocturnaVoyage - Esplora la Nightlife</title>
-  <meta name="description" content="NocturnaVoyage – Guide digitali, NFT personalizzati, info e community per esplorare la nightlife globale.">
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #facc15;
-      --background: #000;
-      --text: #fff;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>nocturnavoyage</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet"/>
+<style>
     body {
+      margin: 0;
       font-family: 'Archivo Black', sans-serif;
       background: url('pubblicita.png') no-repeat center top fixed;
       background-size: cover;
-      background-color: var(--background);
-      color: var(--primary);
-      padding: 2rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
+      background-color: #000;
+      color: #facc15;
+      text-align: center;
+      padding-bottom: 100px;
     }
-
     h1 {
+      margin-top: 40px;
       font-size: 3rem;
-      margin-bottom: 1rem;
-      text-align: center;
+      text-shadow: 2px 2px 8px #000;
     }
-
     h2 {
-      font-size: 2rem;
-      margin: 1rem 0;
-      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 1px 1px 6px #000;
     }
-
-    p {
+    .description {
       max-width: 900px;
-      text-align: center;
-      margin: 0.8rem auto;
-      line-height: 1.6;
-      font-size: 1.3rem;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .nav-links a {
-      background-color: #facc15;
-      color: #000;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 999px;
-      font-weight: bold;
-      transition: transform 0.2s, opacity 0.2s;
-    }
-
-    .nav-links a:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
-
-    .cookie-info {
-      margin-top: 2rem;
-      padding: 1.5rem;
-      background: rgba(0, 0, 0, 0.9);
-      border: 2px dashed var(--primary);
-      border-radius: 12px;
+      margin: 0 auto;
       font-size: 1.2rem;
-      line-height: 1.5;
-      color: var(--text);
-      text-align: center;
+      padding: 0 1rem;
+      text-shadow: 1px 1px 4px #000;
+    }
+    .big-nav-buttons {
+      margin: 30px auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
       max-width: 900px;
     }
+    .big-btn {
+      font-family: 'Archivo Black', sans-serif;
+      padding: 14px 24px;
+      border-radius: 999px;
+      color: white;
+      text-decoration: none;
+      font-size: 1.1em;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease;
+    }
+    .big-btn:hover {
+      transform: scale(1.05);
+    }
+    .btn-about { background: #e91e63; }
+    .btn-wall { background: #3f51b5; }
+    .btn-contact { background: #4caf50; }
+    .btn-ig { background: #ff1493; }
+    .btn-tt { background: #111; border: 2px solid #fff; }
 
-    .cookie-info a {
-      color: var(--primary);
-      text-decoration: underline;
+    .botguard-message {
+      background: rgba(0, 0, 0, 0.85);
+      border: 2px dashed #facc15;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 2rem auto;
+      max-width: 800px;
+      color: #ff4444;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .categories {
+      max-width: 900px;
+      margin: 2rem auto;
+      text-align: left;
+      background: rgba(0,0,0,0.8);
+      padding: 2rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .categories ul {
+      columns: 2;
+      padding-left: 1.5rem;
     }
 
     footer {
-      margin-top: auto;
+      margin-top: 3rem;
       padding: 1.2rem;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0, 0, 0, 0.85);
       font-size: 1rem;
       display: flex;
       flex-wrap: wrap;
@@ -107,60 +107,153 @@
     footer a {
       color: #facc15;
       text-decoration: none;
-      transition: opacity 0.2s;
+      font-weight: bold;
     }
 
     footer a:hover {
       opacity: 0.7;
     }
+  
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  color: #facc15;
+  text-align: center;
+  padding: 12px;
+  font-size: 0.95rem;
+  z-index: 9999;
+}
 
-    @media (max-width: 768px) {
-      h1 { font-size: 2.6rem; }
-      h2 { font-size: 1.8rem; }
-      p { font-size: 1.2rem; }
-      .nav-links a { padding: 0.9rem 1.8rem; }
-      .cookie-info { font-size: 1.1rem; padding: 1.2rem; }
-      footer { flex-direction: column; gap: 0.8rem; }
-    }
+#cookie-banner a {
+  color: #00aaff;
+  text-decoration: underline;
+  font-weight: bold;
+}
 
-    @media (max-width: 480px) {
-      h1 { font-size: 2.4rem; }
-      h2 { font-size: 1.6rem; }
-      p { font-size: 1.1rem; }
-      .nav-links { flex-direction: column; }
-      .nav-links a { width: 90%; text-align: center; }
-      .cookie-info { font-size: 1rem; }
-    }
-  </style>
+#cookie-banner button {
+  background: #facc15;
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-weight: bold;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#cookie-banner button:hover {
+  opacity: 0.85;
+}
+
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  .brand-h1{display:flex;align-items:center;justify-content:center;gap:12px;}
+  .brand-emoji{font-size:2.2rem;line-height:1;}
+  .brand-svg{height:64px;display:block;}
+</style>
 </head>
 <body>
-  <h1>🌙 NocturnaVoyage</h1>
-  <h2>Esplora la Nightlife Globale</h2>
-  <p>NocturnaVoyage è la tua guida digitale per scoprire il meglio della nightlife mondiale.  
-  Offriamo contenuti esclusivi, NFT personalizzati, consigli su hotel e voli, e una community internazionale di viaggiatori adulti.</p>
-  
-  <div class="nav-links">
-    <a href="about.html">ℹ️ Chi siamo</a>
-    <a href="wall.html">🧱 Wall</a>
-    <a href="buy.html">🛒 Acquista Blocco</a>
-    <a href="memory.html">🃏 Memory NFT</a>
-    <a href="contatti.html">✉️ Contatti</a>
-  </div>
+<!-- Start cookieyes banner -->
+<script id="cookieyes" src="https://cdn-cookieyes.com/client_data/6bb0da90cee3d7ae8ffa7824/script.js" type="text/javascript"></script>
+<!-- End cookieyes banner -->
+<h1 class="brand-h1" translate="no" lang="zxx"><span class="sr-only">nocturnavoyage</span><span class="brand-emoji">🌙</span><svg class="brand-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 120" aria-hidden="true" focusable="false"><text x="0" y="90" font-family="Archivo Black, sans-serif" font-size="96" fill="#facc15">nocturnavoyage</text></svg></h1>
+<h2>Explore Global Nightlife</h2>
+<p class="description">
+  The night doesn’t ask for permission — it seduces. From neon-lit chaos to forbidden underground vibes,
+  nocturnavoyage is your unfiltered gateway to the wildest nightlife on Earth. Discover secret spots,
+  meet bold travelers, and create stories you’ll never post — but never forget.
+</p>
 
-  <div class="cookie-info">
-    🍪 Questo sito utilizza cookie tecnici e di terze parti (come Google AdSense o Analytics) per offrirti la migliore esperienza possibile, analizzare il traffico e mostrare annunci personalizzati. Navigando accetti il loro uso. <br>
-    👉 Leggi tutti i dettagli nella nostra <a href="cookie.html">Cookie Policy</a>.
-  </div>
+<!-- Top-right login buttons -->
+<div style="position: fixed; top: 20px; right: 20px; z-index: 9999;">
+  <a href="login-local.html" style="background: #00ffff; color: #000; padding: 10px 18px; border-radius: 999px; text-decoration: none; font-weight: bold; margin-right: 10px;">Login as Venue</a>
+  <a href="login.html" style="background: #facc15; color: #000; padding: 10px 18px; border-radius: 999px; text-decoration: none; font-weight: bold;">Login as User</a>
+</div>
 
-  <footer>
-    <a href="index.html">🏠 Home</a>
-    <a href="about.html">ℹ️ Chi siamo</a>
-    <a href="wall.html">🧱 Wall</a>
-    <a href="buy.html">🛒 Acquista</a>
-    <a href="memory.html">🃏 Memory</a>
-    <a href="contatti.html">✉️ Contatti</a>
-    <a href="privacy.html">📜 Privacy Policy</a>
-    <a href="cookie.html">🍪 Cookie Policy</a>
-  </footer>
+
+<div class="big-nav-buttons">
+  <a class="big-btn btn-about" href="zones/index.html">🗺️ Explore the Zones</a>
+</div>
+
+<div class="big-nav-buttons">
+<a class="big-btn btn-about" href="about.html">ℹ️ About Us</a>
+<a class="big-btn btn-wall" href="stripe-demo/wall.html">🧱 Wall</a>
+<a class="big-btn btn-contact" href="contact.html">📩 Contact</a>
+<a class="big-btn btn-ig" href="https://www.instagram.com/nocturnavoyage" target="_blank">📸 Instagram</a>
+<a class="big-btn btn-tt" href="https://www.tiktok.com/@nocturnavoyage" target="_blank">🎵 TikTok</a>
+<a class="big-btn btn-tt" href="https://x.com/nocturnavo33487" target="_blank">✖️ X Profile</a>
+
+</div>
+<div class="categories">
+
+<h2>🌙 nocturnavoyage Thematic Zones</h2>
+<p style="text-align: left;">
+On nocturnavoyage, you’ll find a world of thematic Zones: nightlife, events, travel, family fun, wellness, urban art, and more — all organized and geolocated.<br><br>
+🎒 <strong>Are you a traveler or curious explorer?</strong><br>
+Dive into the Zones to discover unique places, hidden gems, wild experiences and unforgettable vibes — anywhere in the world.<br><br>
+🏪 <strong>Are you a local business or venue owner?</strong><br>
+Register your place inside your favorite Zone and become visible to thousands of travelers.<br>
+Use your Zone page or your Wall block as a <em>social bio</em> — promote your spot, drop your links, and connect directly.<br><br>
+🎯 Browse. Discover. Connect. Welcome to nocturnavoyage.
+</p>
+
+</div>
+<div class="botguard-message">
+  🛡️ Moderation powered by BotGuard:<br/>
+  All public content is monitored 24/7 by an automated system.<br/>
+  It blocks hate speech, insults, spam, and illegal content automatically.<br/>
+  We believe in freedom of expression — but with respect.
+</div>
+<footer>
+<a href="contatti.html">✉️ Contact</a>
+<a href="privacy.html">📜 Privacy Policy</a>
+<a href="cookie.html">🍪 Cookie Policy</a>
+</footer>
+<div id="cookie-banner">
+  This site uses cookies to provide you with a better experience. <a href="cookie.html">Learn more</a>.
+  <button onclick="acceptCookies()">OK</button>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-MLG2L3SFCC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MLG2L3SFCC');
+
+  function acceptCookies() {
+    localStorage.setItem('cookieAccepted', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+
+  window.onload = function () {
+    if (!localStorage.getItem('cookieAccepted')) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    } else {
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+  }
+</script>
+<div id="cookie-banner">
+  This site uses cookies to give you a better experience. <a href="cookie.html">Read more</a>.
+  <button onclick="acceptCookies()">OK</button>
+</div>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-MLG2L3SFCC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MLG2L3SFCC');
+  function acceptCookies() {
+    localStorage.setItem('cookieAccepted', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+  window.onload = function () {
+    if (!localStorage.getItem('cookieAccepted')) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }
+  }
+</script>
 </body>
 </html>
