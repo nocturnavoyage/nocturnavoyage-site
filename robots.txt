@@ -1,7 +1,4 @@
 User-agent: *
-Disallow: /buy.html
-Disallow: /cookie.html
-Disallow: /privacy.html
-Disallow: /memory.html
+Disallow: /
 
-Sitemap: https://www.nocturnavoyage.com/sitemap.xml
+# Tutto il sito bloccato, nessuna pagina scansionabile
